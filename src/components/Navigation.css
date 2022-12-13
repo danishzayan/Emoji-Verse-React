@@ -1,0 +1,27 @@
+.categories{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.category{
+    list-style-type: none;
+    box-shadow:  0 0 5px rgb(221, 221, 221);
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    text-transform: capitalize;
+
+}
+
+.category:Hover{
+    box-shadow: 0 0 10px rgb(221, 221, 221);
+    transition-property: all;
+   
+    transition-delay: 100ms;
+    cursor: pointer;
+}
+
+.category:active{
+    border-bottom: 5px solid green;
+}
