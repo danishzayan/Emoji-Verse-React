@@ -11,17 +11,32 @@
     padding: 0.5rem 1rem;
     border-radius: 5px;
     text-transform: capitalize;
+   
 
 }
 
 .category:Hover{
-    box-shadow: 0 0 10px rgb(221, 221, 221);
-    transition-property: all;
-   
-    transition-delay: 100ms;
+
+    box-shadow: 0 0 4px rgb(202, 202, 202);
+
+  
     cursor: pointer;
 }
 
-.category:active{
-    border-bottom: 5px solid green;
+.active{
+    color: rgb(68, 170, 165);
+    /* transition-duration: 100ms;
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1); */
+    
 }
+
+
+a{
+    text-decoration: none;
+    
+}
+a:active{
+    color: rgb(10, 177, 168);
+}
+

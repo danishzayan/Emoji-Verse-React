@@ -43,7 +43,8 @@
 .card:hover{
     box-shadow: 0 0 10px rgb(201, 201, 201);
     transition-property: all;
-    transition-delay: 200ms;
+  
+    transition-duration: 300ms;
        transition-property: all;
 
     transition-timing-function: ease-out;

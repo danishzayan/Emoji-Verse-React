@@ -6,83 +6,82 @@ import { Puff } from 'react-loader-spinner'
 import Navigation from './components/Navigation';
 import useFetch from './hooks/useFetch';
 
+
+
 import { useEffect, useState } from 'react';
 
 function App() {
 
-  // const [emoji, setEmoji] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [category, setCategory] = useState('all')
-  const [theme,setTheme] = useState('light')
-  const [keyword,setKeyword] = useState(null)
- 
-
-  
   const apiKey = process.env.API_KEY;
   console.log(apiKey)
 
-//   const loadEmoji = async () => {
-//     setLoading(true);
-// const response = await fetch(`https://emoji-api.com/emojis?access_key= 551124ba2ad223649511fb392bc63afa46544eee`);
-//     const data = await response.json()
-//     setEmoji(data);
-//     // console.log(data.map(d=>console.log(d.character)))
-//     setLoading(false);
-
-//   }
-
-const [emoji]  = useFetch(`https://emoji-api.com/emojis?access_key= 551124ba2ad223649511fb392bc63afa46544eee`)
+  const [loading, setLoading] = useState(true);
+  const [theme, setTheme] = useState('light')
+  const [data] = useFetch(`https://emoji-api.com/emojis?access_key= 551124ba2ad223649511fb392bc63afa46544eee`)
 
 
+  const [emoji, setEmoji] = useState(data);
 
   useEffect(() => {
-    // loadEmoji();
 
-    if(emoji){
+    if (data) {
       setLoading(false);
+      setEmoji(data)
     }
-    const checkTheme =  localStorage.getItem('theme');
-    if(checkTheme){
+    const checkTheme = localStorage.getItem('theme');
+    if (checkTheme) {
       setTheme(checkTheme);
     }
-  }, [loading,emoji])
+  }, [loading, data])
 
 
   const handleCategory = (category) => {
+    console.log("Category : " + category)
+    if (category === 'all')
+      setEmoji(data);
+    else
+      setEmoji(data.filter((d) => category === d.group));
+      console.log(emoji);
 
-    setCategory(category);
- 
+
+
   }
 
-  const handleClick  = (theme)=>{
+  const handleClick = (theme) => {
     setTheme(theme);
     localStorage.setItem("theme", theme);
 
   }
 
-  const handleSearch = (keyword)=>{
- 
-    setKeyword(keyword);
+  const handleSearch = (keyword) => {
+    console.log(keyword.toLowerCase())
+    if (keyword !== null) {
+      
+      const term = keyword.toLowerCase();
+      setEmoji(data.filter(d => d.slug.includes(term)))
+
+    }
   }
 
 
+
   return (
-    
-      <div className={`App ${theme}`}>
-        {loading && <Puff
-          height="80"
-          width="80"
-          radisu={1}
-          color="#4fa94d"
-          ariaLabel="puff-loading"
-          wrapperStyle={{}}
-          wrapperClass="loader"
-          visible={true}
-        />}
-        {!loading && <Header toggleTheme = {handleClick} searchEmoji = {handleSearch} />}
-        {!loading && <Navigation emoji={emoji} changeCategory={handleCategory} />}
-        {!loading && <Cards keyword={keyword} category={category} emoji={emoji} />}
-      </div>
+
+    <div className={`App ${theme}`}>
+      {loading && <Puff
+        height="80"
+        width="80"
+        radisu={1}
+        color="#0ab1a8"
+        ariaLabel="puff-loading"
+        wrapperStyle={{}}
+        wrapperClass="loader"
+        visible={true}
+      />}
+      {!loading && <Header toggleTheme={handleClick} searchEmoji={handleSearch} />}
+      {!loading && <Navigation emoji={data} changeCategory={handleCategory} />}
+      {!loading && <Cards emoji={emoji} />}
+    </div>
   );
 }
 
