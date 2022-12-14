@@ -4,12 +4,13 @@ import Cards from './components/Cards';
 import Header from './components/Header';
 import { Puff } from 'react-loader-spinner'
 import Navigation from './components/Navigation';
+import useFetch from './hooks/useFetch';
 
 import { useEffect, useState } from 'react';
 
 function App() {
 
-  const [emoji, setEmoji] = useState(null);
+  // const [emoji, setEmoji] = useState(null);
   const [loading, setLoading] = useState(true);
   const [category, setCategory] = useState('all')
   const [theme,setTheme] = useState('light')
@@ -20,30 +21,37 @@ function App() {
   const apiKey = process.env.API_KEY;
   console.log(apiKey)
 
-  const loadEmoji = async () => {
-    setLoading(true);
-const response = await fetch(`https://emoji-api.com/emojis?access_key= 551124ba2ad223649511fb392bc63afa46544eee`);
-    const data = await response.json()
-    setEmoji(data);
-    // console.log(data.map(d=>console.log(d.character)))
-    setLoading(false);
+//   const loadEmoji = async () => {
+//     setLoading(true);
+// const response = await fetch(`https://emoji-api.com/emojis?access_key= 551124ba2ad223649511fb392bc63afa46544eee`);
+//     const data = await response.json()
+//     setEmoji(data);
+//     // console.log(data.map(d=>console.log(d.character)))
+//     setLoading(false);
 
-  }
+//   }
+
+const [emoji]  = useFetch(`https://emoji-api.com/emojis?access_key= 551124ba2ad223649511fb392bc63afa46544eee`)
+
+
 
   useEffect(() => {
-    loadEmoji();
+    // loadEmoji();
 
+    if(emoji){
+      setLoading(false);
+    }
     const checkTheme =  localStorage.getItem('theme');
     if(checkTheme){
       setTheme(checkTheme);
     }
-  }, [])
+  }, [loading,emoji])
 
 
   const handleCategory = (category) => {
 
     setCategory(category);
-    console.log(category)
+ 
   }
 
   const handleClick  = (theme)=>{
