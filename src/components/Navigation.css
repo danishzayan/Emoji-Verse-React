@@ -17,17 +17,15 @@
 
 .category:Hover{
 
-    box-shadow: 0 0 4px rgb(202, 202, 202);
-
+    box-shadow: 0 0 5px rgb(155, 155, 155);
+ transition-duration: 500ms;
   
     cursor: pointer;
 }
 
 .active{
     color: rgb(68, 170, 165);
-    /* transition-duration: 100ms;
-    transition-property: all;
-    transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1); */
+
     
 }
 

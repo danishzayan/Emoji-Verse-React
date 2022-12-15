@@ -57,7 +57,7 @@ function App() {
     console.log(keyword.toLowerCase())
     if (keyword !== null) {
       
-      const term = keyword.toLowerCase();
+      const term = keyword.toLowerCase().trim();
       setEmoji(data.filter(d => d.slug.includes(term)))
 
     }
