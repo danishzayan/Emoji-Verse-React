@@ -71,6 +71,7 @@ function App() {
       {loading && <Puff
         height="80"
         width="80"
+     
         radisu={1}
         color="#0ab1a8"
         ariaLabel="puff-loading"
