@@ -19,7 +19,7 @@ const Navigation = (props) => {
             groups.map(g => {
 
                 return <li className='category' onClick={() => props.changeCategory(g)
-                }><NavLink to={`/${g}`} key={g}>{g}</NavLink></li>
+                }><NavLink to={`/${g}`} activeClassName="active" key={g}>{g}</NavLink></li>
             })
 
         }

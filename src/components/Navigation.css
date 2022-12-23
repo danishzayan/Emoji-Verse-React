@@ -11,6 +11,7 @@
     padding: 0.5rem 1rem;
     border-radius: 5px;
     text-transform: capitalize;
+    
    
 
 }
@@ -18,23 +19,32 @@
 .category:Hover{
 
     box-shadow: 0 0 5px rgb(155, 155, 155);
- transition-duration: 500ms;
+ transition-duration: 100ms;
+
   
     cursor: pointer;
 }
+/* .category:active{
+ border-bottom: 4px solid rgb(68, 170, 165);
 
-.active{
+} */
+
+.active,
+a:active{
     color: rgb(68, 170, 165);
+    border-bottom: 2px solid rgb(68, 170, 165);
+   
 
-    
 }
 
 
 a{
     text-decoration: none;
+    width: 100%;
+    height: 100%;
     
 }
-a:active{
+/* a:active{
     color: rgb(10, 177, 168);
-}
+} */
 

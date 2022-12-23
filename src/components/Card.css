@@ -10,7 +10,7 @@
     border-radius: 5px;
     gap:1rem;
  
-    animation: fadeInAnimation ease-in-out 1s;
+    animation: fadeInAnimation ease-in-out 300ms;
     animation-iteration-count: 1;
     animation-fill-mode:backwards;
     
@@ -27,9 +27,27 @@
      }
   }
 
+
+
 .emoji{
     font-size: 3.5rem;
+    animation-name: emojiAnimation;
+    animation-duration: 200ms;
+    animation-fill-mode:inside;
+    animation-iteration-count: 1;
+    animation-play-state: running;
+   
+ 
 }
+
+@keyframes emojiAnimation {
+    0% {
+        font-size: 1rem;
+    }
+    100% {
+        font-size: 3.5rem;
+     }
+  }
 
 .title{
     font-size:1.1rem;
