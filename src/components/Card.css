@@ -32,17 +32,18 @@
 .emoji{
     font-size: 3.5rem;
     animation-name: emojiAnimation;
-    animation-duration: 200ms;
+    animation-duration: 300ms;
     animation-fill-mode:inside;
     animation-iteration-count: 1;
     animation-play-state: running;
+    animation-timing-function: ease;
    
  
 }
 
 @keyframes emojiAnimation {
     0% {
-        font-size: 1rem;
+        font-size: 0rem;
     }
     100% {
         font-size: 3.5rem;
