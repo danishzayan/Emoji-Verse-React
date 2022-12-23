@@ -32,8 +32,8 @@
 .emoji{
     font-size: 3.5rem;
     animation-name: emojiAnimation;
-    animation-duration: 300ms;
-    animation-fill-mode:inside;
+    animation-duration: 100ms;
+    animation-fill-mode:both;
     animation-iteration-count: 1;
     animation-play-state: running;
     animation-timing-function: ease;
