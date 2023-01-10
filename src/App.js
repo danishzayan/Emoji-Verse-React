@@ -1,5 +1,4 @@
 
-import './App.css';
 import Cards from './components/Cards';
 import Header from './components/Header';
 import { Puff } from 'react-loader-spinner'
@@ -67,7 +66,7 @@ function App() {
 
   return (
 
-    <div className={`App ${theme}`}>
+    <div className={`App ${theme} bg-white dark:bg-black`}>
       {loading && <Puff
         height="80"
         width="80"

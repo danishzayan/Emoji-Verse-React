@@ -1,5 +1,3 @@
-import './Cards.css'
-
 
 import Card from './Card'
 
@@ -16,9 +14,9 @@ console.log(props)
 
   }
 
-
+// grid sm:grid-cols-2 justify-items-center
  
- return  <div className='cards'> {filteredData.map(data => <Card data={data} />)}</div>
+ return  <div className='flex flex-wrap gap-2  '> {filteredData.map(data => <Card data={data} />)}</div>
  
 
 }
