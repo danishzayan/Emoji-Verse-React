@@ -50,9 +50,11 @@ function App() {
   };
 
   return (
-    <div className={`container ${theme} mx-auto bg-white  dark:bg-black `}>
+    <div
+      className={`container max-w-screen-2xl ${theme} m-auto bg-white dark:bg-black`}
+    >
       <div
-        className={`App max-w-screen-lg ${theme} mx-auto bg-white dark:bg-black`}
+        className={`App max-w-screen-lg ${theme} m-auto  bg-white dark:bg-black`}
       >
         {loading && (
           <Puff

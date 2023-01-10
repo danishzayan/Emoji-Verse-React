@@ -3,9 +3,9 @@ import { NavLink } from "react-router-dom";
 const Navigation = (props) => {
   let groups = new Set(props.emoji.map((d) => d.group));
   groups = Array.from(groups);
-
+  // sm:sticky sm:top-0 sm:backdrop-blur-sm sm:bg-white/30  dark:backdrop-blur-sm
   return (
-    <nav className=" bg-white flex flex-wrap justify-center py-3 sm:sticky sm:top-0 sm:backdrop-blur-sm sm:bg-white/30  dark:backdrop-blur-sm dark:bg-black/30   ">
+    <nav className=" bg-white flex flex-wrap justify-center py-3  sticky top-0 backdrop-blur-sm bg-white/30  dark:backdrop-blur-sm dark:bg-black/30   ">
       <li
         className=" font-medium   rounded-lg  list-none capitalize my-1 "
         onClick={() => props.changeCategory("all")}
