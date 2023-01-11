@@ -3,9 +3,11 @@ import Header from "./components/Header";
 import { Puff } from "react-loader-spinner";
 import Navigation from "./components/Navigation";
 import useFetch from "./hooks/useFetch";
-
+import * as emoji from "emoji-api";
 import { useEffect, useState } from "react";
 
+// Open Emoji API
+console.log(emoji.all());
 function App() {
   const apiKey = process.env.API_KEY;
   console.log(apiKey);
@@ -21,6 +23,8 @@ function App() {
   useEffect(() => {
     if (data) {
       setLoading(false);
+      console.log(data);
+
       setEmoji(data);
     }
     const checkTheme = localStorage.getItem("theme");
@@ -76,6 +80,7 @@ function App() {
           <Navigation emoji={data} changeCategory={handleCategory} />
         )}
         {!loading && <Cards emoji={emoji} />}
+        {!loading && data.emoji === "error" && <h1>Faild to load ❌</h1>}
       </div>
     </div>
   );
