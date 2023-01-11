@@ -1,3 +1,4 @@
+import ToggleButton from "./ToggleButton";
 const Header = (props) => {
   return (
     <div className="flex flex-col items-center dark:bg-black">
@@ -13,7 +14,8 @@ const Header = (props) => {
           props.searchEmoji(e.target.value);
         }}
       ></input>
-      <div className=" border-solid bg-slate-100 m-4 px-3 py-1 rounded-md ">
+      <ToggleButton toggleTheme={props.toggleTheme}  />
+      {/* <div className=" border-solid bg-slate-100 m-4 px-3 py-1 rounded-md ">
         <button
           type="click"
           className="px-2 py-1 text-lg"
@@ -28,7 +30,7 @@ const Header = (props) => {
         >
           Light
         </button>
-      </div>
+      </div> */}
     </div>
   );
 };
