@@ -51,20 +51,20 @@ function App() {
 
   return (
     <div
-      className={`container max-w-screen-2xl ${theme} m-auto bg-white dark:bg-black`}
+      className={` min-w-full	 ${theme} m-auto dark:bg-black  ${
+        theme === "dark" ? "bg-black" : "bg-white"
+      }`}
     >
-      <div
-        className={`App max-w-screen-lg ${theme} m-auto  bg-white dark:bg-black`}
-      >
+      <div className={`App max-w-screen-lg  m-auto  bg-white dark:bg-black`}>
         {loading && (
           <Puff
             height="80"
             width="80"
-            radisu={1}
+            radius={1}
             color="#0ab1a8"
             ariaLabel="puff-loading"
             wrapperStyle={{}}
-            wrapperClass="container flex center"
+            wrapperClass=" grid items-center justify-center min-h-screen content-centerm  "
             visible={true}
             className=""
           />
