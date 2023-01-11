@@ -15,22 +15,6 @@ const Header = (props) => {
         }}
       ></input>
       <ToggleButton toggleTheme={props.toggleTheme} />
-      {/* <div className=" border-solid bg-slate-100 m-4 px-3 py-1 rounded-md ">
-        <button
-          type="click"
-          className="px-2 py-1 text-lg"
-          onClick={() => props.toggleTheme("dark")}
-        >
-          Dark
-        </button>
-        <button
-          type="click"
-          className="px-2 py-1 text-lg "
-          onClick={() => props.toggleTheme("light")}
-        >
-          Light
-        </button>
-      </div> */}
     </div>
   );
 };
