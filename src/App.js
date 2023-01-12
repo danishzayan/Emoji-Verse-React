@@ -1,6 +1,5 @@
 import Cards from "./components/Cards";
 import Header from "./components/Header";
-import { Puff } from "react-loader-spinner";
 import Navigation from "./components/Navigation";
 import * as data from "emoji-api";
 import { useEffect, useState } from "react";
@@ -17,6 +16,7 @@ function App() {
     if (checkTheme) {
       setTheme(checkTheme);
     }
+
   }, [emoji, theme]);
 
   const handleCategory = (category) => {
@@ -25,6 +25,12 @@ function App() {
       return;
     }
     setEmoji(data.arrange()[category]);
+    window.scrollTo({
+      top: 200,
+      behavior: 'smooth'
+    });
+
+
   };
 
   const handleClick = (theme) => {
@@ -57,12 +63,6 @@ function App() {
 
         <Cards emoji={emoji} />
 
-        {emoji.length === 0 && (
-          <div className="  min-h-screen flex flex-row justify-center my-10 mx-auto text-black bg-white dark:text-white dark:bg-black">
-            <p>No emojis found! ❌ </p>
-            <p> Please enter valid keywords</p>
-          </div>
-        )}
       </div>
     </div>
   );
