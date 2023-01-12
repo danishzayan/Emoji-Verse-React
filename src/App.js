@@ -20,16 +20,17 @@ function App() {
   }, [emoji, theme]);
 
   const handleCategory = (category) => {
-    if (category === "all") {
-      setEmoji(data.all());
-      return;
-    }
-    setEmoji(data.arrange()[category]);
+
     window.scrollTo({
       top: 200,
       behavior: 'smooth'
     });
 
+    if (category === "all") {
+      setEmoji(data.all());
+      return;
+    }
+    setEmoji(data.arrange()[category]);
 
   };
 

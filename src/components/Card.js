@@ -5,7 +5,7 @@ const Card = (props) => {
       key={props.data.codepoints}
     >
       <span className="text-6xl ">{props.data.emoji}</span>
-      <span className="text-xl capitalize">{props.data.name}</span>
+      <span className="text-xl capitalize pt-3">{props.data.name}</span>
     </div>
   );
 };
